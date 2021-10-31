@@ -11,7 +11,7 @@ import "./styles.css"
 import { usePalette } from 'react-palette'
 import axios from 'axios'
 import NotFoundPage from './NotFoundPage'
-import "./pexels-karina-zhukovskaya-7260262.jpg"
+
 const spotifyApi=new SpotifyWebApi({
     clientId:"8f978cfe992340068e03703ef7f053c2",
 })

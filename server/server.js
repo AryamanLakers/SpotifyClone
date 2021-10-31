@@ -62,4 +62,7 @@ app.get("/lyrics",async (request,res)=>{
     const lyrics=await lyricsFinder(data.artist, data.title) || "Not Found!";
     res.json({lyrics})
 })
-app.listen(3001)
+
+app.listen(process.env.PORT||3001,()=>{
+    console.log("The server is up and running")
+})

@@ -3,7 +3,6 @@ import {Container} from "react-bootstrap"
 import backgroundvideo from "./sheckWes.mp4"
 import altbackgroundvideo from "./altvideo.mp4"
 
-import photo from "/home/saiyans/web development/spotify_clone/src/pexels-karina-zhukovskaya-7260262.jpg"
 
 function Login() {
     const client_id="8f978cfe992340068e03703ef7f053c2"
