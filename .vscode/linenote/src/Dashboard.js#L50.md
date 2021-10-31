@@ -1,0 +1,1 @@
+problem: the problem is we only want to search when we have stopped writing the in the input field
