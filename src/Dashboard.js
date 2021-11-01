@@ -112,7 +112,7 @@ function Dashboard({code}) {
     
     useEffect(()=>{
         if(!currentTrack) return 
-        axios.get("http://localhost:3001/lyrics",{
+        axios.get("/lyrics",{
             params:{
                 title:currentTrack.title,
                 artist:currentTrack.artist
