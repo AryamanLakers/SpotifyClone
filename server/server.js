@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const cors=require('cors')
 const lyricsFinder = require('lyrics-finder');
 const app = express() 
-
+require('dotenv').config()
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -13,9 +13,9 @@ app.post('/refresh_token',(req, res)=>{
     const refreshToken = req.body.refreshToken
     
     const spotifyApi=new Spotifywebapi({
-        clientId: "8f978cfe992340068e03703ef7f053c2",
-        clientSecret: "a9dce3e80d594fc08e99a44bff201a82",
-        redirectUri:"https://spotify-mini-26.herokuapp.com",
+        clientId: process.env.clientId,
+        clientSecret: process.env.clientSecret,
+        redirectUri:"http://localhost:3000",
         refreshToken,
     })
     spotifyApi.refreshAccessToken().then(
@@ -37,9 +37,10 @@ app.post('/login',(req,res)=>{
     const code=req.body.code
     
     const spotifyApi=new Spotifywebapi({
-        clientId: "8f978cfe992340068e03703ef7f053c2",
-        clientSecret: "a9dce3e80d594fc08e99a44bff201a82",
-        redirectUri:"https://spotify-mini-26.herokuapp.com",
+        clientId: process.env.clientId,
+        clientSecret: process.env.clientSecret,
+        redirectUri:"http://localhost:3000",
+
     })
     spotifyApi.authorizationCodeGrant(code)
         .then((data)=>{

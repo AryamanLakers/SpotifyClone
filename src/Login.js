@@ -11,7 +11,7 @@ function Login() {
     const params = {
         client_id: client_id,
         response_type: 'code',
-        redirect_uri: "https://spotify-mini-26.herokuapp.com",
+        redirect_uri: "http://localhost:3000",
         scope: scope
     }
     const queryString = new URLSearchParams(params).toString();
@@ -21,7 +21,7 @@ function Login() {
     return (
         
         <Container style={{minHeight:"100vh"}}className="outerbox LoginPage d-flex justify-content-center align-items-center">
-            <video className="video" autoPlay loop muted >
+            <video className="video" autoPlay loop muted >s
                 <source src={backgroundvideo} type="video/mp4"></source>
                 <source src={altbackgroundvideo} type="video/mp4"></source>
                 Your browser does not support the video tag.

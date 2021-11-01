@@ -43,7 +43,7 @@ function Dashboard({code}) {
     const [switchy,setSwitch]=useState(true)
     let player1;
     const photo="https://wallpaperaccess.com/full/781042.jpg"
-    
+    console.log(accessToken)
     
     function choosetrack(track){
         setSwitch(true)
