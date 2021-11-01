@@ -225,14 +225,7 @@ function Dashboard({code}) {
                     setisFinished={setisFinished}
                     setSongState={setSongState}
                 /> 
-                {/* <div>{accessToken}</div>
-                {accessToken?<NewPlayer 
-                    accessToken={accessToken?accessToken:console.log("fuck off")}
-                    trackUri={currentTrack?.uri} 
-                    nextSong={nextSong} 
-                    
-                />:<div>nah not wokring</div>}
-             */}
+               
             </div>
         </Container>
         
