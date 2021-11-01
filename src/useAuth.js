@@ -12,7 +12,7 @@ export default function useAuth(code) {
         
         axios.post("/login",{code,})
             .then(res=>{
-                
+                console.log(res)
                 setAccessToken(res.data.accessToken)
                 setRefreshToken(res.data.refreshToken)
                 setExpiresIn(res.data.expiresIn)

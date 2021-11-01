@@ -35,7 +35,7 @@ app.post('/refresh_token',(req, res)=>{
 app.post('/login',(req,res)=>{
     
     const code=req.body.code
-    
+    console.log("server",code)
     const spotifyApi=new Spotifywebapi({
         clientId: process.env.clientId,
         clientSecret: process.env.clientSecret,
