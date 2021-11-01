@@ -15,7 +15,7 @@ app.post('/refresh_token',(req, res)=>{
     const spotifyApi=new Spotifywebapi({
         clientId: process.env.clientId,
         clientSecret: process.env.clientSecret,
-        redirectUri:"http://localhost:3000",
+        redirectUri:" https://spotify-mini-26.herokuapp.com",
         refreshToken,
     })
     spotifyApi.refreshAccessToken().then(
@@ -39,7 +39,7 @@ app.post('/login',(req,res)=>{
     const spotifyApi=new Spotifywebapi({
         clientId: process.env.clientId,
         clientSecret: process.env.clientSecret,
-        redirectUri:"http://localhost:3000",
+        redirectUri:" https://spotify-mini-26.herokuapp.com",
 
     })
     spotifyApi.authorizationCodeGrant(code)

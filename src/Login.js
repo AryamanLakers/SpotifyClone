@@ -11,7 +11,8 @@ function Login() {
     const params = {
         client_id: client_id,
         response_type: 'code',
-        redirect_uri: "http://localhost:3000",
+        // redirect_uri: "http://localhost:3000",
+        redirect_uri: " https://spotify-mini-26.herokuapp.com",
         scope: scope
     }
     const queryString = new URLSearchParams(params).toString();

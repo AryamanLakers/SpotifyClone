@@ -10,9 +10,9 @@ export default function useAuth(code) {
     useEffect(()=>{
         //i have to make a post request to send the code to /login
         
-        axios.post("http://localhost:3001/login",{code,})
+        axios.post("/login",{code,})
             .then(res=>{
-                console.log("hellllooooo")
+                
                 setAccessToken(res.data.accessToken)
                 setRefreshToken(res.data.refreshToken)
                 setExpiresIn(res.data.expiresIn)
@@ -24,7 +24,7 @@ export default function useAuth(code) {
     
     useEffect(()=>{
         if(!refreshToken || !expiresIn ){return}
-        const interval=setInterval(()=>{axios.post("http://localhost:3001/refresh_token",{refreshToken,})
+        const interval=setInterval(()=>{axios.post("/refresh_token",{refreshToken,})
         .then(res=>{
             setAccessToken(res.data.accessToken)
             setExpiresIn(res.data.expiresIn)

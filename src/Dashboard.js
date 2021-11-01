@@ -11,6 +11,7 @@ import "./styles.css"
 import { usePalette } from 'react-palette'
 import axios from 'axios'
 import NotFoundPage from './NotFoundPage'
+import NewPlayer from './NewPlayer'
 
 const spotifyApi=new SpotifyWebApi({
     clientId:"8f978cfe992340068e03703ef7f053c2",
@@ -41,9 +42,10 @@ function Dashboard({code}) {
     const [isFinished,setisFinished]=useState(false)
     const [songState,setSongState]=useState()
     const [switchy,setSwitch]=useState(true)
+    
     let player1;
     const photo="https://wallpaperaccess.com/full/781042.jpg"
-    console.log(accessToken)
+    
     
     function choosetrack(track){
         setSwitch(true)
@@ -64,10 +66,6 @@ function Dashboard({code}) {
     useEffect(()=>{
         if(!accessToken) return
         spotifyApi.setAccessToken(accessToken)
-        //player1=getThePLayer(accessToken)
-        // player1.addListener('ready', ({ device_id }) => {
-        //     console.log('Ready with Device ID', device_id);
-        //   });
     },[accessToken])
     
     
@@ -76,13 +74,13 @@ function Dashboard({code}) {
         
         if(!search) return setSearchResults([])
         if(!accessToken) return console.log("failed")
-        console.log(accessToken)
+        
         let cancel=false
         spotifyApi.searchTracks(search,{limit:50})
             .then((res)=>{
 
                 if(cancel) return
-                console.log(accessToken)
+               console.log(res)
                 setSearchResults(
                     res.body.tracks.items.map((track)=>{
                         const smallestAlbumUri=track.album.images.reduce((smallest,image)=>{
@@ -167,15 +165,15 @@ function Dashboard({code}) {
        
         useEffect(()=>{
             if(!isFinished)  return console.log("error")
-            console.log(songState.previousTracks[songState.previousTracks.length-1])
+            //console.log(songState.previousTracks[songState.previousTracks.length-1])
             let num=0
             if(nextSong[0].title===songState.previousTracks[songState.previousTracks.length-1].name) num=1
            setCurrentTrack(nextSong[num])
            setNextSong(nextSong.splice(1))
            setisFinished(false)
         },[isFinished])
-        console.log(nextSong)
-
+        
+       
     return (
         
         <Container className="d-flex justify-content-center align-items-center flex-column py-2 containerClass" 
@@ -227,8 +225,14 @@ function Dashboard({code}) {
                     setisFinished={setisFinished}
                     setSongState={setSongState}
                 /> 
-                
-            
+                {/* <div>{accessToken}</div>
+                {accessToken?<NewPlayer 
+                    accessToken={accessToken?accessToken:console.log("fuck off")}
+                    trackUri={currentTrack?.uri} 
+                    nextSong={nextSong} 
+                    
+                />:<div>nah not wokring</div>}
+             */}
             </div>
         </Container>
         
